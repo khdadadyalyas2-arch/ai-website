@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دایرکتوری غول‌های هوش مصنوعی | AI Hub</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+    body { background-color: #0f172a; color: #f8fafc; min-height: 100vh; padding: 30px 20px; }
+    header { text-align: center; margin-bottom: 40px; }
+    h1 { font-size: 2.2rem; margin-bottom: 10px; color: #38bdf8; }
+    p { color: #94a3b8; font-size: 1.1rem; }
+    
+    .controls { max-width: 700px; margin: 0 auto 30px; display: flex; flex-direction: column; gap: 15px; }
+    input#search { width: 100%; padding: 14px 20px; border-radius: 12px; border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 1rem; outline: none; }
+    input#search:focus { border-color: #38bdf8; }
+    
+    .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
+    .btn { background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 8px 18px; border-radius: 20px; cursor: pointer; transition: 0.2s; }
+    .btn.active, .btn:hover { background: #38bdf8; color: #0f172a; font-weight: bold; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-4px); border-color: #38bdf8; }
+    .card-title { font-size: 1.3rem; font-weight: bold; margin-bottom: 8px; color: #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
+    .badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 10px; background: #334155; color: #38bdf8; }
+    .card-desc { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+    .card-link { text-decoration: none; background: #0284c7; color: white; text-align: center; padding: 10px; border-radius: 10px; font-weight: bold; transition: 0.2s; }
+    .card-link:hover { background: #0369a1; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚀 کهکشان هوش مصنوعی</h1>
+    <p>بانک ابزارهای خفن تولید ویدیو، تصویر و مدل‌های پیشرفته دنیا</p>
+  </header>
+
+  <div class="controls">
+    <input type="text" id="search" placeholder="🔍 اسم هوش مصنوعی یا کاربردش رو سرچ کن...">
+    <div class="filters">
+      <button class="btn active" onclick="filterCategory('all')">همه</button>
+      <button class="btn" onclick="filterCategory('video')">🎬 ساخت فیلم و ویدیو</button>
+      <button class="btn" onclick="filterCategory('image')">🎨 تولید تصویر و آرت</button>
+      <button class="btn" onclick="filterCategory('multimodal')">🧠 چندمنظوره / چت</button>
+    </div>
+  </div>
+
+  <div class="grid" id="ai-grid"></div>
+
+  <script>
+    // لیست غول‌های AI (هر وقت خواستی می‌تونی راحت به این لیست اضافه کنی)
+    const aiTools = [
+      { name: "Sora (OpenAI)", category: "video", desc: "غول بی‌شاخ‌ودم تولید ویدیوی سینمایی و فوق‌واقع‌گرایانه با جزئیات دیوانه‌کننده.", link: "https://openai.com/sora" },
+      { name: "Runway Gen-3", category: "video", desc: "ابزار محبوب فیلم‌سازها برای تبدیل متن و تصویر به ویدیو با کنترل دقیق دوربین.", link: "https://runwayml.com" },
+      { name: "Kling AI", category: "video", desc: "مدل ویدیوساز فوق‌العاده قوی با فیزیک طبیعی و حرکت‌های نرم و باورپذیر.", link: "https://klingai.com" },
+      { name: "Luma Dream Machine", category: "video", desc: "تولید سریع ویدیو با حرکت‌های ۳بعدی و پرسپکتیو عالی از روی عکس یا متن.", link: "https://lumalabs.ai/dream-machine" },
+      { name: "Midjourney", category: "image", desc: "پادشاه بلامنازع کیفیت هنری، نورپردازی و تصویرسازی فانتزی و واقع‌گرایانه.", link: "https://www.midjourney.com" },
+      { name: "FLUX.1", category: "image", desc: "مدل متن‌باز و شاهکار جدید برای رندر آناتومی انسان، دست‌ها و متن داخل عکس.", link: "https://blackforestlabs.ai" },
+      { name: "DALL-E 3", category: "image", desc: "دقیق‌ترین هوش مصنوعی در فهم پرامپت‌های پیچیده و متن‌های طولانی (ساخت OpenAI).", link: "https://openai.com" },
+      { name: "Leonardo.ai", category: "image", desc: "بهشت طراح‌های بازی و کاراکتر با کلی استایل آماده، بوم طراحی و قابلیت ادیت.", link: "https://leonardo.ai" },
+      { name: "Pika Labs", category: "video", desc: "انیمیشن‌سازی بامزه، کنترل حرکت اعضا و افکت‌های تغییر فرم روی ویدیوها.", link: "https://pika.art" },
+      { name: "ChatGPT (GPT-4o)", category: "multimodal", desc: "مغز متفکر همه‌کاره؛ تحلیل عکس، نگارش فیلم‌نامه و پرامپت‌نویسی حرفه‌ای.", link: "https://chatgpt.com" }
+    ];
+
+    const grid = document.getElementById('ai-grid');
+    const searchInput = document.getElementById('search');
+    let currentCategory = 'all';
+
+    function renderTools() {
+      const term = searchInput.value.toLowerCase();
+      grid.innerHTML = '';
+      
+      const filtered = aiTools.filter(tool => {
+        const matchesCategory = (currentCategory === 'all' || tool.category === currentCategory);
+        const matchesSearch = tool.name.toLowerCase().includes(term) || tool.desc.toLowerCase().includes(term);
+        return matchesCategory && matchesSearch;
+      });
+
+      filtered.forEach(tool => {
+        const catName = tool.category === 'video' ? 'ویدیو' : tool.category === 'image' ? 'تصویر' : 'چندمنظوره';
+        grid.innerHTML += `
+          <div class="card">
+            <div>
+              <div class="card-title">
+                <span>${tool.name}</span>
+                <span class="badge">${catName}</span>
+              </div>
+              <p class="card-desc">${tool.desc}</p>
+            </div>
+            <a href="${tool.link}" target="_blank" class="card-link">ورود به وبسایت ↗</a>
+          </div>
+        `;
+      });
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      renderTools();
+    }
+
+    searchInput.addEventListener('input', renderTools);
+    renderTools();
+  </script>
+</body>
+</html>
