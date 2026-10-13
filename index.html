@@ -1,104 +1,119 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tools Hub</title>
+  <title>World AI Tools Directory</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
-    body { background-color: #0f172a; color: #f8fafc; min-height: 100vh; padding: 30px 20px; }
-    header { text-align: center; margin-bottom: 35px; }
-    h1 { font-size: 2.2rem; color: #38bdf8; margin-bottom: 8px; }
-    p { color: #94a3b8; font-size: 1.05rem; }
-    .controls { max-width: 650px; margin: 0 auto 30px; display: flex; flex-direction: column; gap: 15px; }
-    input#search { width: 100%; padding: 14px 18px; border-radius: 12px; border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 1rem; outline: none; }
-    input#search:focus { border-color: #38bdf8; }
-    .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; }
-    .btn { background: #1e293b; color: #94a3b8; border: 1px solid #334155; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: 0.2s; font-size: 0.95rem; }
-    .btn.active, .btn:hover { background: #38bdf8; color: #0f172a; font-weight: bold; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
-    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; transition: 0.2s; }
-    .card:hover { transform: translateY(-4px); border-color: #38bdf8; }
-    .card-title { font-size: 1.25rem; font-weight: bold; margin-bottom: 10px; color: #f1f5f9; display: flex; justify-content: space-between; align-items: center; }
-    .badge { font-size: 0.75rem; padding: 4px 10px; border-radius: 10px; background: #334155; color: #38bdf8; }
-    .card-desc { color: #94a3b8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-    .card-link { text-decoration: none; background: #0284c7; color: white; text-align: center; padding: 10px; border-radius: 10px; font-weight: bold; display: block; transition: 0.2s; }
-    .card-link:hover { background: #0369a1; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background-color: #0b0f19; color: #f8fafc; padding: 30px 15px; }
+    header { text-align: center; margin-bottom: 30px; }
+    h1 { color: #38bdf8; font-size: 2rem; margin-bottom: 8px; }
+    p { color: #94a3b8; font-size: 1rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .card { background: #161f30; border: 1px solid #233554; border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; }
+    .card h3 { color: #38bdf8; font-size: 1.2rem; margin-bottom: 6px; }
+    .badge { display: inline-block; background: #0284c7; color: #fff; font-size: 0.75rem; padding: 4px 8px; border-radius: 6px; margin-bottom: 12px; width: fit-content; }
+    .card p { color: #cbd5e1; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px; }
+    .card a { display: block; text-align: center; background: #0ea5e9; color: #0b0f19; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>🚀 بانک هوش مصنوعی دنیا</h1>
-    <p>بهترین ابزارهای ساخت فیلم، عکس و مدل‌های هوشمند جهان</p>
+    <h1>World Top AI Tools</h1>
+    <p>Best Video, Image & Chat AI platforms in the world</p>
   </header>
 
-  <div class="controls">
-    <input type="text" id="search" placeholder="🔍 جستجوی هوش مصنوعی (مثلا Sora, Midjourney)...">
-    <div class="filters">
-      <button class="btn active" onclick="setCategory('all', event)">همه</button>
-      <button class="btn" onclick="setCategory('video', event)">🎬 ساخت فیلم و ویدیو</button>
-      <button class="btn" onclick="setCategory('image', event)">🎨 تولید عکس و هنر</button>
-      <button class="btn" onclick="setCategory('chat', event)">🧠 مدل‌های هوشمند و چت</button>
+      <div class="card">
+      <div>
+        <h3>OpenAI Sora</h3>
+        <span class="badge">Video AI</span>
+        <p>Ultra-realistic cinematic video generator by OpenAI.</p>
+      </div>
+      <a href="https://openai.com/sora" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Runway Gen-3</h3>
+        <span class="badge">Video AI</span>
+        <p>Hollywood grade AI video generation from text and images.</p>
+      </div>
+      <a href="https://runwayml.com" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Kling AI</h3>
+        <span class="badge">Video AI</span>
+        <p>High quality video generator with realistic physics simulation.</p>
+      </div>
+      <a href="https://klingai.com" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Luma Dream Machine</h3>
+        <span class="badge">Video AI</span>
+        <p>Fast cinematic 3D shots and text-to-video model.</p>
+      </div>
+      <a href="https://lumalabs.ai/dream-machine" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Midjourney</h3>
+        <span class="badge">Image AI</span>
+        <p>World leading AI art and photorealistic image creator.</p>
+      </div>
+      <a href="https://midjourney.com" target="_blank">Visit Website</a>
+    </div>
+    <div class="card">
+      <div>
+        <h3>FLUX.1</h3>
+        <span class="badge">Image AI</span>
+        <p>State of the art open weights model for photo generation.</p>
+      </div>
+      <a href="https://blackforestlabs.ai" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>DALL-E 3</h3>
+        <span class="badge">Image AI</span>
+        <p>AI image generator with superior prompt following.</p>
+      </div>
+      <a href="https://chatgpt.com" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Leonardo AI</h3>
+        <span class="badge">Image AI</span>
+        <p>Great suite for game assets, concept art and avatars.</p>
+      </div>
+      <a href="https://leonardo.ai" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>ChatGPT</h3>
+        <span class="badge">LLM / Chat</span>
+        <p>Most popular multimodal conversational AI model.</p>
+      </div>
+      <a href="https://chatgpt.com" target="_blank">Visit Website</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>Claude 3.5 Sonnet</h3>
+        <span class="badge">LLM / Chat</span>
+        <p>Top tier coding and smart reasoning AI assistant.</p>
+      </div>
+      <a href="https://claude.ai" target="_blank">Visit Website</a>
     </div>
   </div>
 
-  <div class="grid" id="grid"></div>
-
-  <script>
-    const tools = [
-      { name: "OpenAI Sora", cat: "video", label: "ویدیو", desc: "غول تولید ویدیوی سینمایی و واقع‌گرایانه با بالاترین جزئیات فیزیکی.", url: "https://openai.com/sora" },
-      { name: "Runway Gen-3", cat: "video", label: "ویدیو", desc: "ابزار حرفه‌ای هالیوودی برای تبدیل عکس و متن به فیلم سینمایی.", url: "https://runwayml.com" },
-      { name: "Kling AI", cat: "video", label: "ویدیو", desc: "هوش مصنوعی ویدیوساز فوق‌العاده قوی با حرکات طبیعی چهره و بدن.", url: "https://klingai.com" },
-      { name: "Luma Dream Machine", cat: "video", label: "ویدیو", desc: "تولید صحنه‌های سه‌بعدی و حرکت نرم دوربین از روی متن و عکس.", url: "https://lumalabs.ai/dream-machine" },
-      { name: "Pika Labs", cat: "video", label: "ویدیو", desc: "ساخت انیمیشن و ادیت ویدیو با افکت‌های جذاب و پویا.", url: "https://pika.art" },
-      { name: "Midjourney", cat: "image", label: "تصویر", desc: "پادشاه هنر دیجیتال و باکیفیت‌ترین تولیدکننده تصاویر گرافیکی و نقاشی.", url: "https://midjourney.com" },
-      { name: "FLUX.1", cat: "image", label: "تصویر", desc: "پیشرفته‌ترین مدل تولید تصویر متن‌باز با جزئیات دقیق دست و چهره.", url: "https://blackforestlabs.ai" },
-      { name: "DALL-E 3", cat: "image", label: "تصویر", desc: "ساخت تصویر توسط OpenAI با درک خارق‌العاده از جملات طولانی.", url: "https://openai.com" },
-      { name: "Leonardo AI", cat: "image", label: "تصویر", desc: "ابزار محبوب برای طراحی کاراکترهای گیمینگ و عکس‌های استودیویی.", url: "https://leonardo.ai" },
-      { name: "Stable Diffusion", cat: "image", label: "تصویر", desc: "معروف‌ترین هوش مصنوعی بدون محدودیت برای نصب و ساخت عکس.", url: "https://stability.ai" },
-      { name: "ChatGPT (GPT-4o)", cat: "chat", label: "چندمنظوره", desc: "دستیار هوشمند همه‌کاره برای نوشتن سناریو، کدنویسی و تحلیل فیلم و تصویر.", url: "https://chatgpt.com" },
-      { name: "Claude 3.5 Sonnet", cat: "chat", label: "چندمنظوره", desc: "هوشمندترین مغز پردازشی جهان با قدرت فوق‌العاده در درک و برنامه‌نویسی.", url: "https://claude.ai" }
-    ];
-
-    let currentCat = 'all';
-
-    function render() {
-      const q = document.getElementById('search').value.toLowerCase();
-      const container = document.getElementById('grid');
-      container.innerHTML = '';
-
-      const list = tools.filter(t => {
-        const matchCat = (currentCat === 'all' || t.cat === currentCat);
-        const matchSearch = t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q);
-        return matchCat && matchSearch;
-      });
-
-      list.forEach(t => {
-        container.innerHTML += `
-          <div class="card">
-            <div>
-              <div class="card-title">
-                <span>${t.name}</span>
-                <span class="badge">${t.label}</span>
-              </div>
-              <p class="card-desc">${t.desc}</p>
-            </div>
-            <a href="${t.url}" target="_blank" class="card-link">ورود به وب‌سایت ↗</a>
-          </div>
-        `;
-      });
-    }
-
-    function setCategory(cat, e) {
-      currentCat = cat;
-      document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-      e.target.classList.add('active');
-      render();
-    }
-
-    document.getElementById('search').addEventListener('input', render);
-    render();
-  </script>
 </body>
 </html>
